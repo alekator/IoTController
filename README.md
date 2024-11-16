@@ -1,3 +1,4 @@
+
 # IoT Controller
 
 Welcome to the **IoT Controller**! This bad boy is all about monitoring your devices in real-time, visualizing data, handling anomalies, and giving you the power to control your devices from one spot. Let's dive in!
@@ -43,7 +44,7 @@ The **IoT Controller** is a full-stack application designed to monitor IoT devic
 
 ### Anomaly Notifications
 
-- Set up rules to detect anomalies (e.g., temperature above 80°C).
+- Set up rules to detect anomalies (e.g., temperature above 80В°C).
 - Receive notifications via Email, Telegram, or Push Notifications when something's off.
 
 ### Device Management
@@ -80,7 +81,7 @@ Make sure you've got the following installed:
 - **.NET MAUI** workload for mobile app development
 - **Node.js** (if needed for any front-end tooling)
 - **SQLite** (or your preferred DBMS)
-- **Android or IOS Device** or Emulator for testing the mobile app
+- **Android or iOS Device** or Emulator for testing the mobile app
 - **MQTT Broker** (like Mosquitto)
 
 ### Installation
@@ -89,13 +90,13 @@ Clone the repo:
 
 ```bash
 git clone https://github.com/yourusername/IoTController.git
+```
 
+## Configuration
 
-# Configuration
+### Back-end (IoTController.API)
 
-## Back-end (IoTController.API)
-
-### Database Setup:
+#### Database Setup:
 
 1. Navigate to `appsettings.json` in the `IoTController.API` project.
 2. Configure your connection string:
@@ -113,7 +114,7 @@ git clone https://github.com/yourusername/IoTController.git
    dotnet ef database update
    ```
 
-### MQTT Broker Configuration:
+#### MQTT Broker Configuration:
 
 Update MQTT settings in `appsettings.json`:
 
@@ -125,20 +126,18 @@ Update MQTT settings in `appsettings.json`:
 }
 ```
 
-### SignalR Configuration:
+#### SignalR Configuration:
 
 Ensure SignalR hubs are configured in `Program.cs`.
 
-### Notifications Configuration:
+#### Notifications Configuration:
 
 - Set up SMTP settings for email notifications.
 - Configure Telegram Bot API token.
 
----
+### Front-end (IoTController.Client)
 
-## Front-end (IoTController.Client)
-
-### API Endpoint Configuration:
+#### API Endpoint Configuration:
 
 In `Program.cs`, set the base address for `HttpClient`:
 
@@ -146,15 +145,13 @@ In `Program.cs`, set the base address for `HttpClient`:
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:5001/") });
 ```
 
-### MudBlazor Setup:
+#### MudBlazor Setup:
 
 Ensure MudBlazor is installed and configured for data visualization.
 
----
+### Mobile App (IoTController.Mobile)
 
-## Mobile App (IoTController.Mobile)
-
-### Update Server URL:
+#### Update Server URL:
 
 In `DataSenderService.cs`, set the correct API endpoint:
 
@@ -162,11 +159,11 @@ In `DataSenderService.cs`, set the correct API endpoint:
 string apiUrl = "https://yourserver.com/api/deviceData";
 ```
 
-### Permissions:
+#### Permissions:
 
 Ensure all necessary permissions are requested in `MainPage.xaml.cs` and declared in `AndroidManifest.xml`.
 
-### Device ID:
+#### Device ID:
 
 Set a unique `DeviceId` in `MainPage.xaml.cs`:
 
@@ -177,8 +174,6 @@ _deviceData = new DeviceDataModel
     // ...
 };
 ```
-
----
 
 ## Running the App
 
@@ -202,15 +197,11 @@ _deviceData = new DeviceDataModel
 4. Run the project.
 5. Grant any necessary permissions on the device.
 
----
-
 ## Common Issues
 
 - **CORS Errors**: Ensure CORS is configured to allow requests from your front-end.
 - **API Connection Issues**: Double-check your API URLs and ensure the back-end is running.
 - **Database Errors**: Ensure migrations have been applied and the database is accessible.
-
----
 
 ## Using Your Android Phone as an IoT Device
 
@@ -237,19 +228,13 @@ We've turned your Android phone into a makeshift IoT device!
 - **GPS**: Gets the device's location.
 - **Battery**: Monitors battery level.
 
----
-
 ## Contributing
 
 Got some cool ideas or found a bug? Contributions are welcome! Feel free to fork the repo and submit a pull request.
 
----
-
 ## License
 
 This project is licensed under the MIT License.
-
----
 
 ## Contact
 
