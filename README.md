@@ -1,7 +1,8 @@
 
 # IoT Controller
 
-Welcome to the **IoT Controller**! This bad boy is all about monitoring your devices in real-time, visualizing data, handling anomalies, and giving you the power to control your devices from one spot. Let's dive in!
+The IoT Controller is a demonstration project showcasing skills in building a full-stack application for IoT systems. It provides functionality for real-time device monitoring, data visualization, and basic device management.
+This project serves as a practical example of integrating a modern tech stack to implement front-end and back-end development, real-time communication, and mobile app integration.
 
 ## Table of Contents
 
@@ -19,12 +20,10 @@ Welcome to the **IoT Controller**! This bad boy is all about monitoring your dev
   - [Configuration](#configuration)
   - [Running the App](#running-the-app)
   - [Common Issues](#common-issues)
-- [Using Your Android Phone as an IoT Device](#using-your-android-phone-as-an-iot-device)
+- [Using Your Android/Ios Phone as an IoT Device](#using-your-android-phone-as-an-iot-device)
   - [Steps](#steps)
   - [Sensors Used](#sensors-used)
-- [Contributing](#contributing)
 - [License](#license)
-- [Contact](#contact)
 
 ## Overview
 
@@ -203,9 +202,9 @@ _deviceData = new DeviceDataModel
 - **API Connection Issues**: Double-check your API URLs and ensure the back-end is running.
 - **Database Errors**: Ensure migrations have been applied and the database is accessible.
 
-## Using Your Android Phone as an IoT Device
+## Using Your Android/Ios Phone as an IoT Device
 
-We've turned your Android phone into a makeshift IoT device!
+We've turned your Android/Ios phone into a makeshift IoT device!
 
 ### Steps
 
@@ -227,17 +226,8 @@ We've turned your Android phone into a makeshift IoT device!
 - **Gyroscope**: Measures device rotation.
 - **GPS**: Gets the device's location.
 - **Battery**: Monitors battery level.
-
-## Contributing
-
-Got some cool ideas or found a bug? Contributions are welcome! Feel free to fork the repo and submit a pull request.
+- **You can add more option** It is easy to implement by following the template
 
 ## License
 
 This project is licensed under the MIT License.
-
-## Contact
-
-- **Your Name**
-- **Email**: your.email@example.com
-- **GitHub**: [yourusername](https://github.com/yourusername)
