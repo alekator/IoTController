@@ -20,7 +20,7 @@ This project serves as a practical example of integrating a modern tech stack to
   - [Configuration](#configuration)
   - [Running the App](#running-the-app)
   - [Common Issues](#common-issues)
-- [Using Your Android/Ios Phone as an IoT Device](#using-your-android-phone-as-an-iot-device)
+- [Using Your Android/Ios Phone as an IoT Device](#using-your-android/ios-phone-as-an-iot-device)
   - [Steps](#steps)
   - [Sensors Used](#sensors-used)
 - [License](#license)
