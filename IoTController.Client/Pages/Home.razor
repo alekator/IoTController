@@ -1,0 +1,36 @@
+﻿@using IoTController.Client.Services
+@using IoTController.Shared;
+
+@page "/"
+@inject DeviceDataService DeviceDataService
+
+<h1>Данные устройств</h1>
+
+<ul>
+    @foreach (var data in deviceDataList)
+    {
+        <li>@($"{data.DeviceId}: Temp={data.Temperature}, Humidity={data.Humidity}, Time={data.Timestamp}")</li>
+    }
+</ul>
+
+@code {
+    private List<DeviceData> deviceDataList = new List<DeviceData>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        DeviceDataService.OnDeviceDataReceived += OnDeviceDataReceived;
+        await DeviceDataService.StartConnection();
+    }
+
+    private void OnDeviceDataReceived(DeviceData data)
+    {
+        deviceDataList.Add(data);
+        InvokeAsync(StateHasChanged);
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        DeviceDataService.OnDeviceDataReceived -= OnDeviceDataReceived;
+        await DeviceDataService.StopConnection();
+    }
+}

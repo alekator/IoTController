@@ -1,25 +1,73 @@
+using IoTController.API.Hubs;
+using IoTController.API.Services;
+using IoTController.Shared;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// Добавление сервисов в контейнер
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// Добавление контекста базы данных
+builder.Services.AddDbContext<IoTContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Добавление SignalR
+builder.Services.AddSignalR();
+
+// Регистрация MqttService
+builder.Services.AddSingleton<MqttService>();
+
+// **Добавление Swagger**
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "IoTController.API", Version = "v1" });
+});
+
+// Настройка CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy",
+        builder => builder
+            .WithOrigins("https://localhost:7226") // Замените 7226 на порт вашего клиента
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials());
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Настройка конвейера обработки запросов
 if (app.Environment.IsDevelopment())
 {
+    // **Использование Swagger**
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "IoTController.API v1");
+    });
 }
 
 app.UseHttpsRedirection();
 
+// Используем CORS перед маршрутизацией
+app.UseCors("CorsPolicy");
+
+app.UseRouting();
+
 app.UseAuthorization();
 
-app.MapControllers();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    // Маршрутизация для SignalR хаба
+    endpoints.MapHub<DeviceDataHub>("/deviceDataHub");
+});
+
+// Запуск MqttService
+var mqttService = app.Services.GetRequiredService<MqttService>();
+await mqttService.ConnectAsync();
 
 app.Run();
