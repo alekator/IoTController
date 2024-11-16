@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35506.116 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTController.Client", "IoTController.Client\IoTController.Client\IoTController.Client.csproj", "{A7E2F1FE-FCA3-4AE2-8676-19F38028A850}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTController.API", "IoTController.API\IoTController.API.csproj", "{054DBDA3-8BD6-4158-857A-9E17BDB5C999}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7E2F1FE-FCA3-4AE2-8676-19F38028A850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7E2F1FE-FCA3-4AE2-8676-19F38028A850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7E2F1FE-FCA3-4AE2-8676-19F38028A850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7E2F1FE-FCA3-4AE2-8676-19F38028A850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{054DBDA3-8BD6-4158-857A-9E17BDB5C999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{054DBDA3-8BD6-4158-857A-9E17BDB5C999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{054DBDA3-8BD6-4158-857A-9E17BDB5C999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{054DBDA3-8BD6-4158-857A-9E17BDB5C999}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
