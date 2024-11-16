@@ -28,7 +28,6 @@ namespace IoTController.API.Services
             var factory = new MqttFactory();
             _mqttClient = factory.CreateMqttClient();
 
-            // Подписываемся на события
             _mqttClient.ConnectedAsync += OnConnectedAsync;
             _mqttClient.ApplicationMessageReceivedAsync += OnMessageReceivedAsync;
         }
@@ -43,7 +42,6 @@ namespace IoTController.API.Services
                 .WithTcpServer("localhost", 1883)
                 .Build();
 
-            // Подписываемся на события
             _mqttClient.ConnectedAsync += OnConnectedAsync;
             _mqttClient.ApplicationMessageReceivedAsync += OnMessageReceivedAsync;
 
@@ -54,7 +52,6 @@ namespace IoTController.API.Services
         {
             Console.WriteLine("Connected to MQTT Broker.");
 
-            // Подписываемся на топик с данными устройств
             var topicFilter = new MqttTopicFilterBuilder()
                 .WithTopic("devices/+/data")
                 .Build();
@@ -74,17 +71,14 @@ namespace IoTController.API.Services
 
             Console.WriteLine($"Received message from topic '{topic}': {payload}");
 
-            // Парсим данные и сохраняем в базу данных
             using (var scope = _scopeFactory.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<IoTContext>();
 
                 try
                 {
-                    // Предполагается, что payload содержит JSON с данными
                     var data = JsonConvert.DeserializeObject<DeviceData>(payload);
 
-                    // Получаем deviceId из топика (devices/{deviceId}/data)
                     var topicParts = topic.Split('/');
                     if (topicParts.Length >= 3)
                     {
@@ -96,7 +90,6 @@ namespace IoTController.API.Services
                     context.DeviceData.Add(data);
                     await context.SaveChangesAsync();
 
-                    // **Отправляем данные всем подключенным клиентам через SignalR**
                     await _hubContext.Clients.All.SendAsync("ReceiveDeviceData", data);
                 }
                 catch (Exception ex)

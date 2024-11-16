@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IoTController.Mobile.MainPage">
+
+    <StackLayout Padding="20">
+        <Label Text="IoT Controller" 
+               FontSize="24"
+               HorizontalOptions="Center" />
+
+        <!-- Кнопки управления сбором данных -->
+        <Button Text="Начать сбор данных" 
+                Clicked="OnStartButtonClicked" />
+        <Button Text="Остановить сбор данных" 
+                Clicked="OnStopButtonClicked" />
+
+        <!-- Поля для отображения данных сенсоров -->
+        <Label x:Name="AccelerometerLabel" Text="Акселерометр: " />
+        <Label x:Name="GyroscopeLabel" Text="Гироскоп: " />
+        <Label x:Name="BatteryLabel" Text="Заряд батареи: " />
+        <Label x:Name="LocationLabel" Text="Местоположение: " />
+    </StackLayout>
+</ContentPage>

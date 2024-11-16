@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTController.Client", "IoT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTController.Shared", "IoTController.Shared\IoTController.Shared.csproj", "{D943DB39-1E52-42D9-B8B0-74D46AFC7BC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTController.Mobile", "IoTController.Mobile\IoTController.Mobile.csproj", "{D3EFF906-211D-4F8B-8DB4-F3ABF5E80869}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,12 @@ Global
 		{D943DB39-1E52-42D9-B8B0-74D46AFC7BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D943DB39-1E52-42D9-B8B0-74D46AFC7BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D943DB39-1E52-42D9-B8B0-74D46AFC7BC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3EFF906-211D-4F8B-8DB4-F3ABF5E80869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3EFF906-211D-4F8B-8DB4-F3ABF5E80869}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3EFF906-211D-4F8B-8DB4-F3ABF5E80869}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D3EFF906-211D-4F8B-8DB4-F3ABF5E80869}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3EFF906-211D-4F8B-8DB4-F3ABF5E80869}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3EFF906-211D-4F8B-8DB4-F3ABF5E80869}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
